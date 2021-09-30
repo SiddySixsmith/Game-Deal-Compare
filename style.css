@@ -1,1 +1,27 @@
+:root{
+    --primary: deepskyblue;
+    --secondary: black;
+    --headers: orange;
 
+}
+header{
+
+    display: flex;
+    justify-content: center;
+    font-size: 400%;
+    background-color: var(--primary);
+    color: var(--secondary);
+    margin-bottom: 100px;
+}
+
+form{
+    position: absolute;
+    left: 42%;
+
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
