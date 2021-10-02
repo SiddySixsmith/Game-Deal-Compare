@@ -1,9 +1,33 @@
-header{
+:root{
+    --primary: deepskyblue;
+    --secondary: black;
+    --headers: orange;
 
+}
+
+header{
     display: flex;
     justify-content: center;
     font-size: 400%;
     background-color: var(--primary);
     color: var(--secondary);
-    margin-bottom: 100px;
+    margin-bottom: 10px;
+}
+
+.container{
+    position: absolute;
+    left: 35%;
+}
+
+.game-input{
+    margin:20px;
+    border: 3px solid var(--primary);
+    border-radius: 5px;
+    padding: 20px;
+    width: 200%;
+}
+#search-form{
+    position: absolute;
+    left: 10%;
+    margin-top: 20px;
 }
