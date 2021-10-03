@@ -25,3 +25,13 @@ footer{
     bottom: 0;
     width: 100%;
 }
+.columns {
+    
+    margin: 2px;
+    border: none;
+}
+.column {
+
+    border: 1px solid deepskyblue;
+    margin: 3px;
+}
