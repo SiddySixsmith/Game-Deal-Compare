@@ -1,29 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Game Deal Compare</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-        <link rel="stylesheet" href="./style.css"/>
-    </head>
-    <body>
-    <header>
-        <h1>Game Deal Compare</h1>
-    </header>
-    <main>
-        <form>
-            <input  class="input is-normal mb-3" type="text" placeholder="game search" id="userInput"> <br>
-            <button class="button is-fullwidth" id="searchButton">Search</button>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <title>Game Deals</title>
+</head>
+
+<body class="flex-column min-100-vh">
+  <header class="hero">
+    <h1 class="app-title"><i class="fab fa-steam"></i> Best Game Deals</h1>
+    <p>Search for favourite game and the best price ever!
+    </p>
+  </header>
+
+
+  <main class="flex-row justify-space-between">
+    <div class="col-12 col-md-4">
+
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search Game</h3>
+        <form id="user-form" class="card-body">
+          <label class="form-label" for="username">Search Game</label>
+          <input id="userInput" type="text" autofocus="true" class="form-input" />
+          <button Id="searchButton"type="submit" class="btn">Search</button>
         </form>
-    </main>
-    </body>
-    <footer class="footer ">
-        <div class="content has-text-centered ">
-          <p>
-            Created By Kimsa Landuyt, Tarkyn Smith and Daniel Sixsmith.
-          </p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search Menu</h3>
+        <div id="menu" class="card-body">
+          <button  class="btn">By Title</button>
+          <button  class="btn">By Price</button>          
         </div>
-      </footer>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-8">
+      <h2 class="subtitle">Results: <span id="search-term"></span></h2>
+      <p id="title" class="list-group">Title :</p>
+      <div id="isOnSale" class="list-group">On Sale :</div>
+      <div id="normalPrice" class="list-group">Normal Price :</div>
+      <div id="thumb" class="list-group">Game Image</div>
+      <div id="steamRatingPercent" class="list-group">Rating :</div>
+    </div>
+  </main>
+
+  <script src="gameDeal.js"></script>
+</body>
+  
+  <footer class="footer ">
+    <div class="footing-section">
+      <p>
+        Created By Kimsa Landuyt, Tarkyn Smith and Daniel Sixsmith.
+      </p>
+    </div>
+  </footer>
 </html>

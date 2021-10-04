@@ -1,8 +1,7 @@
 # Game-Deal-Compare
-# Overview
++ As a user:
+When using this application you can can search for any game you like to find the best deals
 
-When using this application you can can search for the best deals of the game you like. 
+When the button is clicked. user will see the info of the Games Deals, with list of Title, normal price and sale price, can also see the rating.
 
-Our search engine will show a list of the current games.
-
-User will be able to view the game following the title they like, can look up for a specific deal. 
+User is able to view the info of the game they choose. 
