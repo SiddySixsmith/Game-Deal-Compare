@@ -1,6 +1,11 @@
 //Variables
 var searchBtn = document.getElementById("searchButton");
-var userInput = document.getElementById("userInput");
+var titleEl = document.getElementById("title");
+var onSaleEl = document.getElementById("isOnSale");
+var priceEl = document.getElementById("normalPrice");
+var thumbEl = document.getElementById("thumb");
+var steamRatingEl = document.getElementById("steamRatingPercent");
+var menu = document.getElementById("menu-ul");
 
 
 // results to be put in heading elements (innerHTML)
@@ -17,21 +22,40 @@ var userInput = document.getElementById("userInput");
 // Tested the responses from API for List of Games
 var formdata = new FormData();
 var requestOptions = {
-    method: "GET",
-    body: formdata,
-    redirect: "follow"
-}
+    method: 'GET',
+    redirect: 'follow'
+};
 
 // function to get the games 
-function getGames() {
+
    // 1. Use Fetch to get the responses
     fetch("https://www.cheapshark.com/api/1.0/games?title=batman&steamAppID=35140&limit=60&exact=0", requestOptions)
-    .then(response => response.text()
-    .then(result => console.log(result))
-    .catch(error => console.log("error". error)));
+    .then(test)
+    .catch(function(error) {
+        // handle the error
+    });
+    async function test(response) {
+        // handle the response
+       var result = await response.json()
+        console.log(result) 
+
+     
+    var li = document.createElement("li");
+    li.textContent = result[0].external;
+    menu.appendChild(li);
+
+    
+    var li = document.createElement("li");
+    li.textContent = "Cheapest $" + result[0].cheapest;
+    menu.appendChild(li);
+
+    var imgGame = document.getElementById("game-image")
+    imgGame.src = result[0].thumb;
+    menu.appendChild(imgGame);
+
+    }
 
 
-}
 
 var requestOptions = {
     method: "GET",
@@ -42,13 +66,18 @@ var requestOptions = {
 
 function getDeals() {
     // 1. Use Fetch to get the responses
-    fetch("https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15", requestOptions)
-    .then(response => response.text()
-    .then(result => console.log(result))
-    .catch(error => console.log("error", error)));
-
+    fetch("https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15&limit=10", requestOptions)
+    .then(Handle)
+    .catch(function(error) {
+        // handle the error
+    });
+    async function Handle(response) {
+        // handle the response
+       var result = await response.json()
+        console.log(result)
+        
+    }
 }
-
 
 // Tested the responses from API for List of Deals
 
@@ -82,6 +111,7 @@ function handleSearchFormSubmit(event) {
     var queryEl = "https:/www.cheapshark.com/api/1.0/games?title=" + searchInputEl + "&steamAppID=35140&limit=60&exact=0"
    // location assign 
  location.assign(queryEl)
+ console.log(searchInputEl)
 }
 
 // add eventListener to search 

@@ -506,3 +506,12 @@ p {
   border: 1px dotted rgb(3, 32, 32)
 }
 
+#game-image{
+  width: 20%;
+  height: 10%;
+  margin-top: 5px;
+}
+
+li{
+  list-style-type: none;
+}
