@@ -9,6 +9,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
   <title>Game Deals</title>
+  <style>
+    .title {
+      color: lightblue;
+    }
+    .deal {
+      background-color: rgb(44, 21, 61);
+      color: lightblue;
+      padding: 1rem;
+      margin: 1rem;
+      border-radius: 30px 5px;
+    }
+  </style>
 </head>
 
 <body class="flex-column min-100-vh">
@@ -42,11 +54,9 @@
 
     <div id="search-result" class="col-12 col-md-8">
       <h2 class="subtitle">Results: <span id="search-term"></span></h2>
-      <p id="title" class="list-group">Title :</p>
-      <div id="isOnSale" class="list-group">On Sale :</div>
-      <div id="normalPrice" class="list-group">Normal Price :</div>
-      <div id="thumb" class="list-group">Game Image</div>
-      <div id="steamRatingPercent" class="list-group">Rating :</div>
+      <ul id="menu-ul" style="list-style:none;">
+        <img id="game-image">
+      </ul>
     </div>
   </main>
 
