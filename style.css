@@ -5,6 +5,7 @@
   --light-dark: #242abf;
   --dark: #232c42;
   --border-radius: .3rem;
+
 }
 
 * {
@@ -514,4 +515,37 @@ p {
 
 li{
   list-style-type: none;
+  margin-bottom: 20px;
+  border: 3px solid white;
+  background-color: var(--tertiary);
+  color: var(--primary);
+  border-radius: var(--border-radius);
+  padding: 3px;
+
+}
+
+#title{
+  font-size: xx-large;
+}
+
+#cheap{
+  border-top: 3px;
+  border-right: 3px;
+  border-bottom: 3px;
+}
+
+.error{
+background-color: red;
+}
+img{
+  position: relative;
+  align-items: center;
+  height: 150px;
+  width: 250px;
+  margin-top: 20px;
+  border-radius: var(--border-radius);
+}
+
+#container{
+  justify-content: center;
 }
