@@ -118,4 +118,8 @@ searchBtn.addEventListener("click", function(event){
         listGame();
 
         console.log(userInput.value)
+     if (!searchInputEl) {
+        console.error("need valued input!");
+        return;
+    }
 })
