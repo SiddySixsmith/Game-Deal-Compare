@@ -506,6 +506,7 @@ p {
   border: 1px dotted rgb(3, 32, 32)
 }
 
+
 .deal {
   background-image: linear-gradient(to right, rgb(12, 52, 146), rgb(5, 21, 58));
   line-height: 25px;
@@ -521,3 +522,14 @@ p {
 .link {
   color: lightblue;
 }
+
+#game-image{
+  width: 20%;
+  height: 10%;
+  margin-top: 5px;
+}
+
+li{
+  list-style-type: none;
+}
+
