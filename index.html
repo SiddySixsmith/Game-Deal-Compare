@@ -9,12 +9,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
   <title>Game Deals</title>
+  
 </head>
 
 <body class="flex-column min-100-vh">
   <header class="hero">
     <h1 class="app-title"><i class="fab fa-steam"></i> Best Game Deals</h1>
-    <p>Search for favourite game and the best price ever!
+    <p>Search for your favourite game and the best price ever!
     </p>
   </header>
 
@@ -30,19 +31,13 @@
           <button id="searchButton" type="submit" class="btn">Search</button>
         </form>
       </div>
-
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search Menu</h3>
-        <div id="menu" class="card-body">
-          <button  class="btn">By Title</button>
-          <button  class="btn">By Price</button>          
-        </div>
-      </div>
     </div>
 
-    <div  id="container" class="col-12 col-md-8">
+    
+    <div id="search-result" class="col-12 col-md-8">
       <h2 class="subtitle">Results: <span id="search-term"></span></h2>
       <ul id="menu-ul">
+        
         <img id="game-image">
       </ul>
     </div>
