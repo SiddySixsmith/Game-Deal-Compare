@@ -107,11 +107,11 @@ function fetchData() {
                 <p> Sale Price : $ ${deals.salePrice} </p>
                 <p> Rating : ${deals.steamRatingPercent} %</p>
                 <p> Deal Rating : ${deals.dealRating} </p>
-                <p><a class="link" target="_blank" href="https://www.metacritic.com/${deals.metacriticLink}"> Metacritic </a> </p>
+                <p><a class="link" target="_blank" href="https://www.metacritic.com/${deals.metacriticLink}"> More Details for this game </a> </p>
                 <p><a class="link" target="_blank" href="https://www.cheapshark.com/redirect?dealID={id}">Follow this link to see more</a> </p>
              </div> `
 
-                    ;
+            ;
 
             }).join("");
             // insert the elements
