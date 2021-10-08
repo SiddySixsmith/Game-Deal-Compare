@@ -4,6 +4,9 @@ var menu = document.getElementById("menu-ul");
 var userInput = document.getElementById("userInput")
 var saveInput = userInput.value;
 var FormEl = document.getElementById("user-form");
+var searchRel = document.getElementById("search-result")
+var dealShowEl = document.getElementById("deals");
+var RecentSearch = document.getElementById("recent-search")
 
 var formdata = new FormData();
 var requestOptions = {
@@ -25,6 +28,7 @@ function listGame(){
         console.log(result);
 
      menu.innerHTML = ""
+     dealShowEl.innerHTML = "";
         //creates all required fields for info
     for (i = 0; i <result.length; i++) {
        
@@ -56,7 +60,7 @@ function listGame(){
     buttonEl.addEventListener("click", function(event){
         event.preventDefault();
         var titleTest = event.target.getAttribute("data-title")
-        menu.innerHTML = ""
+        menu.innerHTML = "";
         fetchData(titleTest)
     })
 
@@ -65,8 +69,8 @@ function listGame(){
 
 };
 
-function fetchData(titleI) {
-    fetch(`https://www.cheapshark.com/api/1.0/deals?title=${titleI}`)
+function fetchData(titleTest) {
+    fetch(`https://www.cheapshark.com/api/1.0/deals?title=${titleTest}&pageSize=5`)
     .then(response => {
         // check the response for error
         if(!response.ok) {
@@ -81,7 +85,7 @@ function fetchData(titleI) {
             // create div to store the results
             return `
                               
-             <div id="deal" class="deal">                
+             <div class="deal">                
                 <p><img src="${deals.thumb} alt="${deals.title}" /> </p>
                 <h1 class="title" > ${deals.title} </h1>                          
                 <p> Normal Price : $ ${deals.normalPrice} </p>
@@ -96,8 +100,7 @@ function fetchData(titleI) {
         }).join("");
         
         console.log(html);
-        
-        document.getElementById("search-result").insertAdjacentHTML("afterbegin", html);
+        dealShowEl.insertAdjacentHTML("afterbegin", html);
         
     })
     .catch(error => {
@@ -105,34 +108,33 @@ function fetchData(titleI) {
     });
 }
 function addHistory() {
-    // Retreive the game name
-    var game = userInput.value
+    var key = "saveInput"
+    var value = userInput.value
 
-    // Create list items
-    var newSearchLi = document.createElement("li")
-    var newSearchText = document.createElement("a")
-    newSearchLi.className = "history"
+    if (key && value){
+        localStorage.setItem(key, value);
+        location.reload
+    }
+};
 
-    // Add game name to list item
-    newSearchText.innerHTML = game
+for (let i = 0; i < localStorage.length; i++){
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
 
-    // Add game name to saved search history array
-    savedSearchHistory.push(game)
-    // Save array as string in local storage
-    localStorage.setItem("savedSearches", savedSearchHistory.toString());
+    var li = document.createElement("li");
+    li.innerHTML = value;
+    RecentSearch.appendChild(li);
+
 }
 
 //activate search button
 searchBtn.addEventListener("click", function(event){
     event.preventDefault();
-    if (typeof(Storage) !== "undefined") {
-            // Store
-        localStorage.setItem("saveInput", userInput.value);
-            // Retrieve
-            
-          } 
-          
+    addHistory();
     listGame();
+          } )
+          
+   
     
 
     console.log(userInput.value)
@@ -140,4 +142,3 @@ searchBtn.addEventListener("click", function(event){
         console.error("need valued input!");
         return;
     }*/
-})
