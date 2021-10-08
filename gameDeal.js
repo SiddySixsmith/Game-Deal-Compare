@@ -7,6 +7,9 @@ var FormEl = document.getElementById("user-form");
 var searchRel = document.getElementById("search-result")
 var dealShowEl = document.getElementById("deals");
 var RecentSearch = document.getElementById("recent-search")
+var searchhistory = [];
+var savedhistoryarray = localStorage.getItem("key");
+savedhistoryarray = savedhistoryarray ? savedhistoryarray.split(',') : [];
 
 var formdata = new FormData();
 var requestOptions = {
@@ -14,6 +17,7 @@ var requestOptions = {
     redirect: 'follow'
 };
 
+retrieve()
 //function to fetch
 function listGame(){
 
@@ -107,34 +111,49 @@ function fetchData(titleTest) {
         console.log(error);
     });
 }
-function addHistory() {
-    var key = "saveInput"
-    var value = userInput.value
 
+
+function addHistory() {
+    var key = searchhistory
+    var value = userInput.value
+    
     if (key && value){
-        localStorage.setItem(key, value);
-        location.reload
-    }
+        searchhistory.push(value)
+        localStorage.setItem("key", JSON.stringify(searchhistory));
+        
+        
+    } 
 };
 
-for (let i = 0; i < localStorage.length; i++){
-    const key = localStorage.key(i);
-    const value = localStorage.getItem(key);
 
-    var li = document.createElement("li");
-    li.innerHTML = value;
-    RecentSearch.appendChild(li);
+function retrieve(){
+for (i = 0; i < savedhistoryarray.length; i++){
 
+    var newSearchLi = document.createElement("li");
+    var newSearchLink = document.createElement("a")
+    newSearchLi.innerHTML = savedhistoryarray[i];
+    newSearchLi.classList.add("history")
+    RecentSearch.appendChild(newSearchLi);
+    newSearchLi.appendChild(newSearchLink);
+    
+    newSearchLi.addEventListener("click", function(event){
+        userInput.value = event.target.textContent;
+        listGame()
+    })
 }
+}
+
+
 
 //activate search button
 searchBtn.addEventListener("click", function(event){
     event.preventDefault();
     addHistory();
     listGame();
+    
           } )
           
-   
+          
     
 
     console.log(userInput.value)
