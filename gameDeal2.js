@@ -11,36 +11,10 @@ var requestOptions = {
     redirect: 'follow'
 };
 
-
-searchBtn.addEventListener("click", function(event){
-    event.preventDefault();
-    if (typeof(Storage) !== "undefined") {
-        // Store
-        localStorage.setItem("saveInput", userInput.value);
-        // Retrieve
-        document.getElementById("userInput").innerHTML = localStorage.getItem("saveInput")
-    } 
-           
-    
-    console.log(userInput)
-    if (!userInput.value) {
-        console.error("need valued input!");
-        return;
-    
-    }
-
-    let searchInput = document.getElementById("userInput")
-    let queryString = "https://www.cheapshark.com/api/1.0/games?title=" + searchInput + "&steamAppID=" + "&limit=20&exact=0";
-        
-    location.assign(queryString)
-})
-
-
-
 //function to fetch
 function listGame(){
-    
-    fetch(`https://www.cheapshark.com/api/1.0/games?title=${userInput}&limit=20&exact=0`, requestOptions)
+    fetch("https://www.cheapshark.com/api/1.0/games?id=612", requestOptions)
+    //fetch(`https://www.cheapshark.com/api/1.0/games?title=${userInput}&limit=20&exact=0`, requestOptions)
     .then(test)
     .catch(function(error) {
         // handle the error
@@ -84,8 +58,6 @@ function listGame(){
 
 };
 
-listGame();
-
 function fetchData() {
     fetch("https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15")
     .then(response => {
@@ -109,8 +81,7 @@ function fetchData() {
                 <p> Sale Price : $ ${deals.salePrice} </p>
                 <p> Rating : ${deals.steamRatingPercent} %</p>
                 <p> Deal Rating : ${deals.dealRating} </p>
-                <p><a class="link" target="_blank" href="https://www.metacritic.com/${deals.metacriticLink}"> Metacritic </a> </p>
-                <p><a class="link" target="_blank" href="https://www.cheapshark.com/redirect?dealID={id}">Follow this link to see more</a> </p>
+                <a class="link" href="https://www.cheapshark.com/redirect?dealID={id}">Follow this link to see more</a>
              </div> `
              
             ;
@@ -134,5 +105,27 @@ var requestOptions = {
     redirect: "follow"
 };
 
+searchBtn.addEventListener("click", function(listGame){
+    listGame.preventDefault();
+    if (typeof(Storage) !== "undefined") {
+        // Store
+        localStorage.setItem("saveInput", userInput.value);
+        // Retrieve
+        document.getElementById("userInput").innerHTML = localStorage.getItem("saveInput")
+    } 
+           
+    
+    console.log(userInput)
+    if (!userInput) {
+        console.error("need valued input!");
+        return;
+    
+    }
 
+   
+    let queryString = "https://www.cheapshark.com/api/1.0/games?title=" + userInput + "&steamAppID=" + "&limit=20&exact=0";
+        
+    location.assign(queryString)
+})
+listGame();
 //localStorage.setItem()
