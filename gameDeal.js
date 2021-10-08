@@ -29,8 +29,7 @@ FormEl.addEventListener("submit", function (event) {
     }
 
     let searchInput = document.getElementById("userInput").value
-    // let queryString = "https://www.cheapshark.com/api/1.0/games?title=" + searchInput + "&steamAppID=" + "&limit=20&exact=0";
-
+    
     listGame(searchInput);
 })
 
@@ -85,7 +84,7 @@ function listGame(userInput) {
 
 
 function fetchData() {
-    fetch("https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15")
+    fetch("https://www.cheapshark.com/api/1.0/deals?storeID=1&lowerPrice=30")
         .then(response => {
             // check the response for error
             if (!response.ok) {
@@ -107,8 +106,8 @@ function fetchData() {
                 <p> Sale Price : $ ${deals.salePrice} </p>
                 <p> Rating : ${deals.steamRatingPercent} %</p>
                 <p> Deal Rating : ${deals.dealRating} </p>
-                <p><a class="link" target="_blank" href="https://www.metacritic.com/${deals.metacriticLink}"> More Details for this game </a> </p>
-                <p><a class="link" target="_blank" href="https://www.cheapshark.com/redirect?dealID={id}">Follow this link to see more</a> </p>
+                <p><a class="link" target="_blank" href="https://www.metacritic.com/${deals.metacriticLink}"> Reviews, Trailers and more Details </a> </p>
+                <p><a class="link" target="_blank" href="https://www.cheapshark.com/redirect?dealID={id}">Follow this link to see more games</a> </p>
              </div> `
 
             ;
@@ -127,10 +126,10 @@ function fetchData() {
 fetchData();
 
 
-var requestOptions = {
-    method: "GET",
-    redirect: "follow"
-};
+//var requestOptions = {
+//    method: "GET",
+//    redirect: "follow"
+//};
 
 
 //localStorage.setItem()

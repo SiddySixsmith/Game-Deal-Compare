@@ -93,15 +93,15 @@ p {
   box-shadow: 2px 2px var(--dark);
 } */
 
-.hero {
-  padding: 3% 4%;
+ .hero {
+  padding: 0% 3%;
   background-color: var(--dark);
   color: var(--primary);
 }
 
 .hero p {
-  max-width: 75%;
-}
+  max-width: 85%;
+} 
 
 .app-title {
   font-size: 3rem;
@@ -114,7 +114,7 @@ p {
   box-shadow: 6px 5px var(--light-dark);
 }
 
-.list-group {
+/* .list-group {
   padding: 0;
   list-style: none;
 }
@@ -129,8 +129,8 @@ p {
 }
 
 .list-item:hover {
-  background-color: var(--dark);
-}
+  background-color: var(--dark); 
+} 
 
 .status-icon {
   padding: 2px 5px;
@@ -145,7 +145,7 @@ p {
 
 .icon-success {
   color: rgb(29, 153, 255);
-}
+} */
 
 .card {
   margin: 0 0 20px 0;
@@ -164,11 +164,11 @@ p {
   padding: 2.5%;
 }
 
-.form-label,
-.form-input,
-.form-textarea {
+ .form-label,
+.form-input
+{
   display: block;
-}
+} 
 
 .form-label {
   font-size: 1.1rem;
@@ -177,14 +177,14 @@ p {
 
 .form-input {
   width: 100%;
-  padding: 3%;
+  padding: 1%;
   margin: 5px 0;
   font-size: 1.2rem;
   border: 2px solid var(--light-dark);
   border-radius: var(--border-radius);
 }
 
-/* HEIGHT / WIDTH UTILS */
+
 .min-100-vh {
   min-height: 100vh;
 }
@@ -193,13 +193,13 @@ p {
   min-width: 100vw;
 }
 
-/* FONT UTILS */
+
 .text-uppercase {
   text-transform: uppercase;
-}
+  padding: none;
+} 
 
 
-/* FLEX CONTENT */
 .flex-row {
   display: flex;
   flex-wrap: wrap;
@@ -209,7 +209,7 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-}
+} 
 
 .justify-space-between {
   justify-content: space-between;
@@ -225,7 +225,7 @@ p {
 
 .justify-flex-end {
   justify-content: flex-end;
-}
+} 
 
 .justify-center {
   justify-content: center;
@@ -237,7 +237,7 @@ p {
 
 .align-end {
   align-items: flex-end;
-}
+} 
 
 .align-center {
   align-items: center;
@@ -289,7 +289,7 @@ p {
 
 .col-11 {
   flex: 0 0 calc(100% * 11 / 12 - 2%);
-}
+} 
 
 .col-12 {
   flex: 0 0 100%;
@@ -323,7 +323,7 @@ p {
 
   .col-sm-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
-  }
+  } 
 
   .col-sm-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
@@ -339,7 +339,7 @@ p {
 
   .col-sm-11 {
     flex: 0 0 calc(100% * 11 / 12 - 2%);
-  }
+  } 
 
   .col-sm-12 {
     flex: 0 0 100%;
@@ -375,7 +375,7 @@ p {
 
   .col-md-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
-  }
+  } 
 
   .col-md-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
@@ -395,12 +395,12 @@ p {
 
   .col-md-12 {
     flex: 0 0 100%;
-  }
-}
+  } 
+} 
 
 
 @media screen and (min-width: 992px) {
-  .col-lg-1 {
+   .col-lg-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
   }
 
@@ -426,7 +426,7 @@ p {
 
   .col-lg-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
-  }
+  } 
 
   .col-lg-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
@@ -442,7 +442,7 @@ p {
 
   .col-lg-11 {
     flex: 0 0 calc(100% * 11 / 12 - 2%);
-  }
+  } 
 
   .col-lg-12 {
     flex: 0 0 100%;
@@ -451,6 +451,7 @@ p {
 
 /* col-xl */
 @media screen and (min-width: 1200px) {
+  
   .col-xl-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
   }
@@ -477,7 +478,7 @@ p {
 
   .col-xl-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
-  }
+  } 
 
   .col-xl-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
@@ -497,8 +498,8 @@ p {
 
   .col-xl-12 {
     flex: 0 0 100%;
-  }
-}
+  } 
+} 
 
 .footing-section {
   justify-content: center;
@@ -507,10 +508,9 @@ p {
   border: 1px dotted rgb(3, 32, 32)
 }
 
-
 .deal {
   background-image: linear-gradient(to right, rgb(12, 52, 146), rgb(5, 21, 58));
-  
+
   color: lightblue;
   padding: 1rem;
   margin: 1rem;
@@ -538,6 +538,8 @@ li{
   color: var(--primary);
   border-radius: var(--border-radius);
   padding: 3px;
+  flex-wrap: wrap;
+  place-items: center;
 
 }
 

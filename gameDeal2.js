@@ -11,6 +11,27 @@ var requestOptions = {
     redirect: 'follow'
 };
 
+searchBtn.addEventListener("click", function(listGame){
+    listGame.preventDefault();
+    if (typeof(Storage) !== "undefined") {
+        // Store
+        localStorage.setItem("saveInput", userInput.value);
+        // Retrieve
+        document.getElementById("userInput").innerHTML = localStorage.getItem("saveInput")
+    } 
+        
+    console.log(userInput)
+    if (!userInput) {
+        console.error("need valued input!");
+        return;
+    
+    }
+
+    listGame();
+        
+    
+})
+
 //function to fetch
 function listGame(){
     fetch("https://www.cheapshark.com/api/1.0/games?id=612", requestOptions)
@@ -105,27 +126,6 @@ var requestOptions = {
     redirect: "follow"
 };
 
-searchBtn.addEventListener("click", function(listGame){
-    listGame.preventDefault();
-    if (typeof(Storage) !== "undefined") {
-        // Store
-        localStorage.setItem("saveInput", userInput.value);
-        // Retrieve
-        document.getElementById("userInput").innerHTML = localStorage.getItem("saveInput")
-    } 
-           
-    
-    console.log(userInput)
-    if (!userInput) {
-        console.error("need valued input!");
-        return;
-    
-    }
 
-   
-    let queryString = "https://www.cheapshark.com/api/1.0/games?title=" + userInput + "&steamAppID=" + "&limit=20&exact=0";
-        
-    location.assign(queryString)
-})
-listGame();
+
 //localStorage.setItem()
