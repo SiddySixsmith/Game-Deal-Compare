@@ -1,6 +1,8 @@
 # Game-Deal-Compare
 
 When using this application, user can search for popular games or games of their choice with the the comparison of the retail price and sale price. There is also a display of random games and linked to see more information of different stores with the list of more games and best deals.
+View Demo
+https://siddysixsmith.github.io/Game-Deal-Compare/
 
 # Application Design
 When the application starts:
