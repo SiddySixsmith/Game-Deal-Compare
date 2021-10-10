@@ -70,15 +70,38 @@ p {
   display: inline;
 }
 
- .hero {
-  padding: 0% 3%;
+.btn-back {
+  border-radius: var(--border-radius);
+  color: var(--primary);
+  border: none;
+  outline: none;
+  background-color: var(--light-dark);
+  box-shadow: 3px 3px var(--secondary);
+  transform: translate(-1px, -1px);
+  display: inline-block;
+  width: auto;
+  margin-top: 20px;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+ .btn-back:hover {
+  color: var(--primary);
+  background-color: var(--tertiary);
+  transform: translate(0, 0);
+  box-shadow: 2px 2px var(--dark);
+}
+
+.hero {
+  padding: 3% 4%;
   background-color: var(--dark);
   color: var(--primary);
 }
 
 .hero p {
-  max-width: 85%;
-} 
+  max-width: 75%;
+}
 
 .app-title {
   font-size: 3rem;
@@ -91,7 +114,7 @@ p {
   box-shadow: 6px 5px var(--light-dark);
 }
 
- .list-group {
+.list-group {
   padding: 0;
   list-style: none;
 }
@@ -106,8 +129,8 @@ p {
 }
 
 .list-item:hover {
-  background-color: var(--dark); 
-} 
+  background-color: var(--dark);
+}
 
 .status-icon {
   padding: 2px 5px;
@@ -122,7 +145,7 @@ p {
 
 .icon-success {
   color: rgb(29, 153, 255);
-} 
+}
 
 .card {
   margin: 0 0 20px 0;
@@ -141,11 +164,11 @@ p {
   padding: 2.5%;
 }
 
- .form-label,
-.form-input
-{
+.form-label,
+.form-input,
+.form-textarea {
   display: block;
-} 
+}
 
 .form-label {
   font-size: 1.1rem;
@@ -154,14 +177,14 @@ p {
 
 .form-input {
   width: 100%;
-  padding: 1%;
+  padding: 3%;
   margin: 5px 0;
   font-size: 1.2rem;
   border: 2px solid var(--light-dark);
   border-radius: var(--border-radius);
 }
 
-
+/* HEIGHT / WIDTH UTILS */
 .min-100-vh {
   min-height: 100vh;
 }
@@ -170,13 +193,13 @@ p {
   min-width: 100vw;
 }
 
-
+/* FONT UTILS */
 .text-uppercase {
   text-transform: uppercase;
-  padding: none;
-} 
+}
 
 
+/* FLEX CONTENT */
 .flex-row {
   display: flex;
   flex-wrap: wrap;
@@ -186,7 +209,7 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-} 
+}
 
 .justify-space-between {
   justify-content: space-between;
@@ -202,7 +225,7 @@ p {
 
 .justify-flex-end {
   justify-content: flex-end;
-} 
+}
 
 .justify-center {
   justify-content: center;
@@ -214,7 +237,7 @@ p {
 
 .align-end {
   align-items: flex-end;
-} 
+}
 
 .align-center {
   align-items: center;
@@ -266,7 +289,7 @@ p {
 
 .col-11 {
   flex: 0 0 calc(100% * 11 / 12 - 2%);
-} 
+}
 
 .col-12 {
   flex: 0 0 100%;
@@ -300,7 +323,7 @@ p {
 
   .col-sm-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
-  } 
+  }
 
   .col-sm-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
@@ -316,7 +339,7 @@ p {
 
   .col-sm-11 {
     flex: 0 0 calc(100% * 11 / 12 - 2%);
-  } 
+  }
 
   .col-sm-12 {
     flex: 0 0 100%;
@@ -352,7 +375,7 @@ p {
 
   .col-md-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
-  } 
+  }
 
   .col-md-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
@@ -372,12 +395,12 @@ p {
 
   .col-md-12 {
     flex: 0 0 100%;
-  } 
-} 
+  }
+}
 
 
 @media screen and (min-width: 992px) {
-   .col-lg-1 {
+  .col-lg-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
   }
 
@@ -403,7 +426,7 @@ p {
 
   .col-lg-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
-  } 
+  }
 
   .col-lg-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
@@ -419,7 +442,7 @@ p {
 
   .col-lg-11 {
     flex: 0 0 calc(100% * 11 / 12 - 2%);
-  } 
+  }
 
   .col-lg-12 {
     flex: 0 0 100%;
@@ -428,7 +451,6 @@ p {
 
 /* col-xl */
 @media screen and (min-width: 1200px) {
-  
   .col-xl-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
   }
@@ -455,7 +477,7 @@ p {
 
   .col-xl-7 {
     flex: 0 0 calc(100% * 7 / 12 - 2%);
-  } 
+  }
 
   .col-xl-8 {
     flex: 0 0 calc(100% * 8 / 12 - 2%);
@@ -475,8 +497,8 @@ p {
 
   .col-xl-12 {
     flex: 0 0 100%;
-  } 
-} 
+  }
+}
 
 .footing-section {
   justify-content: center;
@@ -486,26 +508,21 @@ p {
   margin-top: 130px;
 }
 
+
 .deal {
-  background-image: linear-gradient(to right, rgb(18, 65, 173), rgb(5, 21, 58));
-  /*transform: translate(20px, 50px);*/
-  box-shadow: 5px 5px var(--light-dark);
-  color: rgb(255, 123, 0);
+  background-image: linear-gradient(to right, rgb(12, 52, 146), rgb(5, 21, 58));
+  line-height: 25px;
+  color: lightblue;
   padding: 1rem;
   margin: 1rem;
   border-radius: 40px 5px;
-
-}
-.deal:hover{
-  transform: translate(4px, 4px);
-  box-shadow: 6px 6px var(--tertiary);  
 }
 
 .title {
-  color: greenyellow;
+  color: lightblue;
 }
 .link {
-  color: yellow;
+  color: lightblue;
 }
 
 #game-image{
@@ -522,9 +539,7 @@ li{
   color: var(--primary);
   border-radius: var(--border-radius);
   padding: 3px;
-  flex-wrap: wrap;
-  place-items: center;
-  width: 800px;
+
 }
 
 #title{
