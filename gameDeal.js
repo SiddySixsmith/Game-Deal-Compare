@@ -7,11 +7,11 @@ var FormEl = document.getElementById("user-form");
 
 var formdata = new FormData();
 var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
+    method: "GET",
+    redirect: "follow"
 };
 
-
+// Function to handle the form and button onclick
 FormEl.addEventListener("submit", function (event) {
     event.preventDefault();
     if (typeof (Storage) !== "undefined") {
@@ -27,7 +27,7 @@ FormEl.addEventListener("submit", function (event) {
         return;
 
     }
-
+    
     let searchInput = document.getElementById("userInput").value
     
     listGame(searchInput);
@@ -82,9 +82,9 @@ function listGame(userInput) {
 
 };
 
-
+// Function to fetch Data for the game deals
 function fetchData() {
-    fetch("https://www.cheapshark.com/api/1.0/deals?storeID=1&lowerPrice=30")
+    fetch("https://www.cheapshark.com/api/1.0/deals?storeID=1&lowerPrice=25")
         .then(response => {
             // check the response for error
             if (!response.ok) {
