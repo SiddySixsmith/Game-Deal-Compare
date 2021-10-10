@@ -7,9 +7,10 @@ var FormEl = document.getElementById("user-form");
 var searchRel = document.getElementById("search-result")
 var dealShowEl = document.getElementById("deals");
 var RecentSearch = document.getElementById("recent-search")
-var searchhistory = [];
-var savedhistoryarray = localStorage.getItem("key");
-savedhistoryarray = savedhistoryarray ? savedhistoryarray.split(',') : [];
+var searchHistory = [];
+var savedHistoryArray = localStorage.getItem("key") || '[]';
+var arrayHistory = JSON.parse(savedHistoryArray);
+var clearBtn = document.getElementById("clearButton")
 
 var formdata = new FormData();
 var requestOptions = {
@@ -17,7 +18,7 @@ var requestOptions = {
     redirect: 'follow'
 };
 
-retrieve()
+
 //function to fetch
 function listGame(){
 
@@ -70,7 +71,7 @@ function listGame(){
 
     }
     }
-
+    
 };
 
 function fetchData(titleTest) {
@@ -97,6 +98,8 @@ function fetchData(titleTest) {
                 <p> Rating : ${deals.steamRatingPercent} %</p>
                 <p> Deal Rating : ${deals.dealRating} </p>
                 <a class="link" href="https://www.cheapshark.com/redirect?dealID={id}">Follow this link to see more</a>
+                <p><a class="link" target="_blank" href="https://www.metacritic.com/${deals.metacriticLink}"> Reviews, Trailers and more Details </a> </p>
+                <p><a class="link" target="_blank" href="https://www.cheapshark.com/redirect?dealID={id}">Follow this link to see more games</a> </p>
              </div> `
              
             ;
@@ -114,25 +117,47 @@ function fetchData(titleTest) {
 
 
 function addHistory() {
-    var key = searchhistory
     var value = userInput.value
     
-    if (key && value){
-        searchhistory.push(value)
-        localStorage.setItem("key", JSON.stringify(searchhistory));
-        
-        
-    } 
-};
-
-
-function retrieve(){
-for (i = 0; i < savedhistoryarray.length; i++){
-
     var newSearchLi = document.createElement("li");
-    var newSearchLink = document.createElement("a")
-    newSearchLi.innerHTML = savedhistoryarray[i];
-    newSearchLi.classList.add("history")
+    var newSearchLink = document.createElement("a");
+    newSearchLi.classList.add("history");
+    newSearchLink.classList.add("history");
+
+    newSearchLink.innerHTML = value;
+        searchHistory.push(value)
+        var searchHistoryString = JSON.stringify(searchHistory)
+        localStorage.setItem("key", searchHistoryString);
+        RecentSearch.appendChild(newSearchLi);
+        newSearchLi.appendChild(newSearchLink);
+        location.reload;
+        
+};
+//clear local storage
+clearBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    // Clear localStorage
+    localStorage.clear();
+    // Clear savedSearchHistory array
+    searchHistory = [];
+    // Remove list items
+    RecentSearch.innerHTML = '';
+    //remove results
+    menu.innerHTML = '';
+
+    dealShowEl.innerHTML = '';
+});
+
+//populate recent search
+
+for (i = 0; i < arrayHistory.length; i++){
+    
+    var newSearchLi = document.createElement("li");
+    var newSearchLink = document.createElement("a");
+    newSearchLi.innerHTML = arrayHistory[i];
+    newSearchLi.classList.add("history");
+    newSearchLink.classList.add("history");
     RecentSearch.appendChild(newSearchLi);
     newSearchLi.appendChild(newSearchLink);
     
@@ -141,23 +166,12 @@ for (i = 0; i < savedhistoryarray.length; i++){
         listGame()
     })
 }
-}
-
-
 
 //activate search button
 searchBtn.addEventListener("click", function(event){
     event.preventDefault();
     addHistory();
     listGame();
-    
-          } )
+ })
           
-          
-    
-
     console.log(userInput.value)
-     /*if (!searchInputEl) {
-        console.error("need valued input!");
-        return;
-    }*/

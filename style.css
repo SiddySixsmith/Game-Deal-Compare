@@ -567,3 +567,12 @@ img{
 #container{
   justify-content: center;
 }
+
+#clearButton{
+  width: 95%;
+  margin-left: 2%;
+}
+
+.history{
+  width: 95%;
+}
