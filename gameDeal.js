@@ -131,6 +131,11 @@ function addHistory() {
         RecentSearch.appendChild(newSearchLi);
         newSearchLi.appendChild(newSearchLink);
         location.reload;
+
+        newSearchLi.addEventListener("click", function(event){
+            userInput.value = event.target.textContent;
+            listGame()
+        })
         
 };
 //clear local storage
