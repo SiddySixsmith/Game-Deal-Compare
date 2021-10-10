@@ -19,14 +19,13 @@
     </p>
   </header>
 
-
-  <main class="flex-row justify-space-between">
-    <div class="col-12 col-md-4">
-
+  <main class="flex-row align-center justify-center"> 
+   
+    <div class="col-12 col-md-9">
       <div class="card">
         <h3 class="card-header text-uppercase">Search Game</h3>
         <form id="user-form" class="card-body">
-          <label class="form-label" for="username">Search Game</label>
+         <!-- <label class="form-label" for="username">Search Game</label> -->
           <input id="userInput" autocomplete="on" type="text" autofocus="true" class="form-input" />
           <button id="searchButton" type="submit" class="btn">Search</button>
         </form>
@@ -38,8 +37,8 @@
         </ul>
       </fieldset>
     </div>
-
     
+
     <div id="search-result" class="col-12 col-md-8">
       <h2 class="subtitle">Results: <span id="search-term"></span></h2>
       <div id="deals">
@@ -50,13 +49,19 @@
         <img id="game-image">
       </ul>
     </div>
+
+    
+
   </main>
 
-  <script src="gameDeal.js"></script>
+
+  <script src="./gameDeal.js"></script>
+
 </body>
   
   <footer class="footer ">
     <div class="footing-section">
+      
       <p>
         Created By Kimsa Landuyt, Tarkyn Smith and Daniel Sixsmith.
       </p>
