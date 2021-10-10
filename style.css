@@ -482,7 +482,8 @@ p {
   justify-content: center;
   align-items: center;
   display: flex;
-  border: 1px dotted rgb(3, 32, 32)
+  border: 1px dotted rgb(3, 32, 32);
+  margin-top: 130px;
 }
 
 .deal {
