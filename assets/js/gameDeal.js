@@ -97,7 +97,6 @@ function fetchData(titleTest) {
                 <p> Sale Price : $ ${deals.salePrice} </p>
                 <p> Rating : ${deals.steamRatingPercent} %</p>
                 <p> Deal Rating : ${deals.dealRating} </p>
-                <a class="link" href="https://www.cheapshark.com/redirect?dealID={id}">Follow this link to see more</a>
                 <p><a class="link" target="_blank" href="https://www.metacritic.com/${deals.metacriticLink}"> Reviews, Trailers and more Details </a> </p>
                 <p><a class="link" target="_blank" href="https://www.cheapshark.com/redirect?dealID={id}">Follow this link to see more games</a> </p>
              </div> `
@@ -157,7 +156,6 @@ clearBtn.addEventListener("click", function (event) {
 //populate recent search
 
 for (i = 0; i < arrayHistory.length; i++){
-    
     var newSearchLi = document.createElement("li");
     var newSearchLink = document.createElement("a");
     newSearchLi.innerHTML = arrayHistory[i];
